@@ -55,8 +55,8 @@ var numberstack = new Stack();
 function evaluate() {
 	var pop1 = 0;
 	var pop2 = 0;
-	var operand = '+';
-	var result = 0;
+	var operand = "+";
+	var result;
 
 
 	var token  = userinput.split(" ");
@@ -85,20 +85,15 @@ function evaluate() {
 		print(numberstack.pop() + "num second pop");
 		print(numberstack.peek());
 		}//end of test if
-	while(var i=0; i<userinput.length; ++i) {
+	for(var i=0; i<userinput.length; ++i) {
 		if(operatorstack.peek() == ('*')) {
 			operand  = operatorstack.pop();
-			//print(operand);
 			pop1 = numberstack.pop();
-			//print(pop1);
 			pop2 = numberstack.pop();
-			//print(pop2);
-			//print("about to multiply" + pop1 + " " + pop2 + " " + operand);
 			result = pop2 * pop1;
 			print(result);
 			numberstack.push(result);
 		}// end of math if
-
 		else if(operatorstack.peek() == ('/')) {
 			operand = operatorstack.pop();
 			pop1 = numberstack.pop();
@@ -107,7 +102,6 @@ function evaluate() {
 			print(result);
 			numberstack.push(result);
 		}//end of math if
-
 		else if(operatorstack.peek() == ('-')) {
 			operand = operatorstack.pop();
 			pop1 = numberstack.pop();
@@ -116,7 +110,6 @@ function evaluate() {
 			print(result);
 			numberstack.push(result);
 		}//end of math if
-
 		else if(operatorstack.peek() == ('+')) {
 			operand = operatorstack.pop();
 			pop1 = numberstack.pop();
@@ -126,11 +119,12 @@ function evaluate() {
 			numberstack.push(result);
 		}//end of math if
 	}//end of for loop
+	print(result);
 }//end of evalutate
 
 
-var userinput = "2 + 2 * 5";
-print(evaluate(userinput));
+var userinput = "2 + 2 + 5";
+evaluate(userinput);
 //var token = userinput.split(" ");
 //print(evaluate(userinput));
 //print(token);
