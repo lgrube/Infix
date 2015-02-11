@@ -1,6 +1,7 @@
 //luke Grube
 //infix to postfix
 
+var TEST = false;
 
 function Stack() {
 	this.dataStore = [];
@@ -35,7 +36,7 @@ function clear() {
 var operatorstack = new Stack();
 var numberstack = new Stack();
 
-print("before i prompt you for input");
+//print("before i prompt you for input");
 
 //var n = prompt("enter infix equation here");
 //alert(n);
@@ -48,22 +49,61 @@ print("before i prompt you for input");
 //	n.push(numberstack);
 //}
 
-print("after prompt is done");
-print(operatorstack + "here is oper Stack");
-print(numberstack + "number stack is here");
+//print("after prompt is done");
+//print(operatorstack + "here is oper Stack");
+//print(numberstack + "number stack is here");
 function evaluate() {
+	var pop1 = 0;
+	var pop2 = 0;
+	var operand = '+';
+	var result = 0;
 
-	for(var i=0; i<Stack.length; ++i) {
-		var n = Stack.peek();
-		print(Stack.length);
-		if (isNaN(n)) {
-			n.push(operatorstack);
-			print(opeatorstack);
-		} //end of if
+
+	var token  = userinput.split(" ");
+	print(token);
+	for(var i=0; i<token.length; ++i) {
+		var var1 = token[i];
+	//	print(var1);
+		var res = var1.charAt(0);
+		if(res >= '0' && res <= '9') {
+			numberstack.push(var1);
+		//	print(numberstack.peek() + "pushing numbers");
+		}
 		else {
-			n.push(numberstack);
-			print(numberstack)
-		} //end of else
+			if(res == '+' || res == '-' || res == '*'|| res == '/') {
+				operatorstack.push(var1);	
+	//			print(operatorstack.peek() + "pushing operators");
+			}//end of if
+		}//end of else if
 	} //end of for loop
+	if(TEST) {
+		print(var1);
+		print(operatorstack.peek() + "op");
+		print(operatorstack.pop() + "operator first pop");
+		print(numberstack.peek() + "num");
+		print(numberstack.pop() + "num first pop");
+		print(numberstack.pop() + "num second pop");
+		print(numberstack.peek());
+		}//end of test if
+
+	if(operatorstack.peek() == ('*')) {
+		operand  = operatorstack.pop();
+		print(operand);
+		pop1 = numberstack.pop();
+		print(pop1);
+		pop2 = numberstack.pop();
+		print(pop2);
+		print("about to multiply" + pop1 + " " + pop2 + " " + operand);
+		result = pop2 * pop1;
+		print(result);
+		numberstack.push(result);
+
+	}// end of math if
 }//end of evalutate
-print(evaluate(2+1));
+
+
+var userinput = "2 + 2 * 5";
+print(evaluate(userinput));
+//var token = userinput.split(" ");
+//print(evaluate(userinput));
+//print(token);
