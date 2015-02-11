@@ -49,11 +49,13 @@ print("before i prompt you for input");
 //}
 
 print("after prompt is done");
-
+print(operatorstack + "here is oper Stack");
+print(numberstack + "number stack is here");
 function evaluate() {
 
 	for(var i=0; i<Stack.length; ++i) {
 		var n = Stack.peek();
+		print(Stack.length);
 		if (isNaN(n)) {
 			n.push(operatorstack);
 			print(opeatorstack);
