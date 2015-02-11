@@ -44,3 +44,17 @@ else {
 	if(n >='0' && n <= '9');
 	n.push(numberstack);
 }
+
+
+function evaluate() {
+
+	for(var i=0; i<Stack.length; ++i) {
+		if(isNaN(Stack) {
+			Stack.push(operatorstack);
+		}
+		else {
+			Stack.push(numberstack);
+		}
+	}
+}
+
