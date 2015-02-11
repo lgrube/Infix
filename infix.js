@@ -34,27 +34,34 @@ function clear() {
 
 var operatorstack = new Stack();
 var numberstack = new Stack();
-var n = prompt("enter infix equation here");
-alert(n);
-n = parseInt(n);
-if (isNaN(n)) {
-	n.push(operatorstack);
-}
-else {
-	if(n >='0' && n <= '9');
-	n.push(numberstack);
-}
 
+print("before i prompt you for input");
+
+//var n = prompt("enter infix equation here");
+//alert(n);
+//n = parseInt(n);
+//if (isNaN(n)) {
+//	n.push(operatorstack);
+//}
+//else {
+//	if(n >='0' && n <= '9');
+//	n.push(numberstack);
+//}
+
+print("after prompt is done");
 
 function evaluate() {
 
 	for(var i=0; i<Stack.length; ++i) {
-		if(isNaN(Stack) {
-			Stack.push(operatorstack);
-		}
+		var n = Stack.peek();
+		if (isNaN(n)) {
+			n.push(operatorstack);
+			print(opeatorstack);
+		} //end of if
 		else {
-			Stack.push(numberstack);
-		}
-	}
-}
-
+			n.push(numberstack);
+			print(numberstack)
+		} //end of else
+	} //end of for loop
+}//end of evalutate
+print(evaluate(2+1));
