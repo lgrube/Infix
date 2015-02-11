@@ -85,20 +85,47 @@ function evaluate() {
 		print(numberstack.pop() + "num second pop");
 		print(numberstack.peek());
 		}//end of test if
+	while(var i=0; i<userinput.length; ++i) {
+		if(operatorstack.peek() == ('*')) {
+			operand  = operatorstack.pop();
+			//print(operand);
+			pop1 = numberstack.pop();
+			//print(pop1);
+			pop2 = numberstack.pop();
+			//print(pop2);
+			//print("about to multiply" + pop1 + " " + pop2 + " " + operand);
+			result = pop2 * pop1;
+			print(result);
+			numberstack.push(result);
+		}// end of math if
 
-	if(operatorstack.peek() == ('*')) {
-		operand  = operatorstack.pop();
-		print(operand);
-		pop1 = numberstack.pop();
-		print(pop1);
-		pop2 = numberstack.pop();
-		print(pop2);
-		print("about to multiply" + pop1 + " " + pop2 + " " + operand);
-		result = pop2 * pop1;
-		print(result);
-		numberstack.push(result);
+		else if(operatorstack.peek() == ('/')) {
+			operand = operatorstack.pop();
+			pop1 = numberstack.pop();
+			pop2 = numberstack.pop();
+			result = pop2 / pop1;
+			print(result);
+			numberstack.push(result);
+		}//end of math if
 
-	}// end of math if
+		else if(operatorstack.peek() == ('-')) {
+			operand = operatorstack.pop();
+			pop1 = numberstack.pop();
+			pop2 = numberstack.pop();
+			result = pop2 - pop1;
+			print(result);
+			numberstack.push(result);
+		}//end of math if
+
+		else if(operatorstack.peek() == ('+')) {
+			operand = operatorstack.pop();
+			pop1 = numberstack.pop();
+			pop2 = numberstack.pop();
+			result = pop2 + pop1;
+			print(result);
+			numberstack.push(result);
+		}//end of math if
+	}//end of for loop
 }//end of evalutate
 
 
