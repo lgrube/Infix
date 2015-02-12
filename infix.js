@@ -55,7 +55,7 @@ var numberstack = new Stack();
 function evaluate() {
 	var pop1 = 0;
 	var pop2 = 0;
-	var operand = "+";
+	var operand = '+';
 	var result;
 
 
@@ -88,33 +88,34 @@ function evaluate() {
 	for(var i=0; i<userinput.length; ++i) {
 		if(operatorstack.peek() == ('*')) {
 			operand  = operatorstack.pop();
-			pop1 = numberstack.pop();
-			pop2 = numberstack.pop();
+			pop1 = parseInt(numberstack.pop());
+			pop2 = parseInt(numberstack.pop());
 			result = pop2 * pop1;
 			print(result);
 			numberstack.push(result);
 		}// end of math if
 		else if(operatorstack.peek() == ('/')) {
 			operand = operatorstack.pop();
-			pop1 = numberstack.pop();
-			pop2 = numberstack.pop();
+			pop1 = parseInt(numberstack.pop());
+			pop2 = parseInt(numberstack.pop());
 			result = pop2 / pop1;
 			print(result);
 			numberstack.push(result);
 		}//end of math if
 		else if(operatorstack.peek() == ('-')) {
 			operand = operatorstack.pop();
-			pop1 = numberstack.pop();
-			pop2 = numberstack.pop();
+			pop1 = parseInt(numberstack.pop());
+			pop2 =parseInt(numberstack.pop());
 			result = pop2 - pop1;
 			print(result);
 			numberstack.push(result);
 		}//end of math if
 		else if(operatorstack.peek() == ('+')) {
 			operand = operatorstack.pop();
-			pop1 = numberstack.pop();
-			pop2 = numberstack.pop();
+			pop1 = parseInt(numberstack.pop());
+			pop2 = parseInt(numberstack.pop());
 			result = pop2 + pop1;
+			print("zombie");
 			print(result);
 			numberstack.push(result);
 		}//end of math if
